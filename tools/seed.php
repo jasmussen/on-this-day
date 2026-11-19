@@ -211,6 +211,12 @@ foreach ( $plan as $years_ago => $entries ) {
 
 		$date = sprintf( '%04d-%02d-%02d %02d:%02d:00', $year, $month, $day, 8 + ( $index % 9 ), ( $index * 7 ) % 60 );
 
+		/*
+		 * Matched on the date as well as the title. Checking the title alone
+		 * meant that once a site had been seeded, running this again on a
+		 * later day did nothing at all, leaving the dashboard empty on the
+		 * day you were actually looking at.
+		 */
 		$existing = get_posts(
 			array(
 				'post_type'      => 'post',
@@ -218,6 +224,13 @@ foreach ( $plan as $years_ago => $entries ) {
 				'posts_per_page' => 1,
 				'post_status'    => 'any',
 				'fields'         => 'ids',
+				'date_query'     => array(
+					array(
+						'year'  => $year,
+						'month' => $month,
+						'day'   => $day,
+					),
+				),
 			)
 		);
 

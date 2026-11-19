@@ -164,6 +164,22 @@
 	margin-bottom: 4px;
 }
 
+/*
+ * In the opt-out prototype the question sits under the posts, so it needs a
+ * rule to separate it from the list and quieter text: it is a footnote to
+ * the content rather than the thing being asked about.
+ */
+
+.otd-optout-notice {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.otd-optout-notice .otd-optin-text {
+	color: #646970;
+}
+
 /* Scope switch and restore ---------------------------------------------- */
 
 /*
