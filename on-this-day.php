@@ -21,7 +21,6 @@ define( 'OTD_URL', plugin_dir_url( __FILE__ ) );
 require_once OTD_DIR . 'includes/core-compat.php';
 require_once OTD_DIR . 'includes/prefs.php';
 require_once OTD_DIR . 'includes/query.php';
-require_once OTD_DIR . 'includes/optin.php';
 require_once OTD_DIR . 'includes/controls.php';
 require_once OTD_DIR . 'includes/widget.php';
 require_once OTD_DIR . 'includes/ajax.php';

@@ -24,22 +24,12 @@ Add `?otd_date=MM-DD` to the dashboard URL to look at another day, including one
 
 ## Sharing it
 
-Two links boot a throwaway WordPress in the browser with the plugin installed and the posts seeded. They differ only in when the widget asks.
-
-**Opt-out**, the proposed behaviour: the posts are there, with the question underneath them.
+`blueprint.json` boots a throwaway WordPress in the browser with the plugin installed and the posts seeded:
 
 ```text
 https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jasmussen/on-this-day/main/blueprint.json
 ```
 
-**Opt-in**: nothing is queried or shown until the question is answered.
-
-```text
-https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jasmussen/on-this-day/main/blueprint-opt-in.json
-```
-
-Locally, add `?otd_mode=opt-in` to the dashboard URL for the same thing. Neither answer is remembered, so the question returns on the next plain load; in the real feature it would persist.
-
-The seed always targets today, so both links stay populated whenever they are opened.
+The seed always targets today, so the link stays populated whenever it is opened.
 
 GitHub's "Download ZIP" is also directly installable through **Plugins → Add New → Upload Plugin**. There is no build step.

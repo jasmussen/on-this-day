@@ -126,18 +126,6 @@ add_action( 'admin_enqueue_scripts', 'otd_enqueue_assets' );
 function otd_render_widget() {
 	echo '<div class="otd">';
 
-	if ( otd_has_opted_out() ) {
-		otd_render_declined();
-		echo '</div>';
-		return;
-	}
-
-	if ( 'opt-in' === otd_get_mode() && ! otd_has_opted_in() ) {
-		otd_render_optin_gate();
-		echo '</div>';
-		return;
-	}
-
 	$posts = otd_get_posts();
 
 	if ( ! $posts ) {
@@ -153,12 +141,6 @@ function otd_render_widget() {
 	}
 
 	otd_render_restore_link();
-
-	// In the opt-out prototype the question follows the posts, until it has
-	// been answered.
-	if ( ! otd_has_opted_in() ) {
-		otd_render_optout_notice();
-	}
 
 	echo '</div>';
 }

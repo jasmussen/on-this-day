@@ -20,11 +20,7 @@ defined( 'ABSPATH' ) || exit;
 function otd_scope_url( $scope ) {
 	$url = add_query_arg( 'otd_scope', rawurlencode( $scope ), admin_url( 'index.php' ) );
 
-	if ( otd_has_opted_in() ) {
-		$url = add_query_arg( 'otd_optin', '1', $url );
-	}
-
-	return wp_nonce_url( otd_add_context( $url ), 'otd_scope' );
+	return wp_nonce_url( otd_add_date_arg( $url ), 'otd_scope' );
 }
 
 /**
@@ -35,11 +31,7 @@ function otd_scope_url( $scope ) {
 function otd_restore_url() {
 	$url = add_query_arg( 'otd_restore', '1', admin_url( 'index.php' ) );
 
-	if ( otd_has_opted_in() ) {
-		$url = add_query_arg( 'otd_optin', '1', $url );
-	}
-
-	return wp_nonce_url( otd_add_context( $url ), 'otd_restore' );
+	return wp_nonce_url( otd_add_date_arg( $url ), 'otd_restore' );
 }
 
 /**
@@ -68,11 +60,7 @@ function otd_handle_requests() {
 
 	$url = admin_url( 'index.php' );
 
-	if ( otd_has_opted_in() ) {
-		$url = add_query_arg( 'otd_optin', '1', $url );
-	}
-
-	wp_safe_redirect( otd_add_context( $url ) );
+	wp_safe_redirect( otd_add_date_arg( $url ) );
 	exit;
 }
 add_action( 'load-index.php', 'otd_handle_requests' );

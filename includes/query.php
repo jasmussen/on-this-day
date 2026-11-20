@@ -46,6 +46,24 @@ function otd_get_date() {
 }
 
 /**
+ * Carries the day being looked at across a link.
+ *
+ * Only needed by the prototype's `otd_date` override; without it, following
+ * any link in the widget would snap back to today.
+ *
+ * @param string $url URL to add to.
+ * @return string
+ */
+function otd_add_date_arg( $url ) {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only display override.
+	if ( isset( $_GET['otd_date'] ) ) {
+		$url = add_query_arg( 'otd_date', rawurlencode( sanitize_text_field( wp_unslash( $_GET['otd_date'] ) ) ), $url );
+	}
+
+	return $url;
+}
+
+/**
  * A readable label for the date being shown, e.g. "November 16th".
  *
  * @return string

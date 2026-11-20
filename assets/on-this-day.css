@@ -132,54 +132,6 @@
 	margin: 0;
 }
 
-/* Opt-in gate ----------------------------------------------------------- */
-
-.otd-optin {
-	margin: 0;
-}
-
-.otd-optin-text {
-	margin: 0 0 12px;
-	color: #1d2327;
-}
-
-.otd-optin-actions {
-	margin: 0;
-	display: flex;
-	gap: 8px;
-	flex-wrap: wrap;
-}
-
-/* Neither answer is the expected one, so neither button is primary. */
-
-.wp-core-ui .otd-optin-actions .button {
-	margin: 0;
-}
-
-.otd-optin-declined .otd-optin-text {
-	color: #646970;
-}
-
-.otd-optin-declined .otd-optin-text {
-	margin-bottom: 4px;
-}
-
-/*
- * In the opt-out prototype the question sits under the posts, so it needs a
- * rule to separate it from the list and quieter text: it is a footnote to
- * the content rather than the thing being asked about.
- */
-
-.otd-optout-notice {
-	margin-top: 12px;
-	padding-top: 12px;
-	border-top: 1px solid #f0f0f1;
-}
-
-.otd-optout-notice .otd-optin-text {
-	color: #646970;
-}
-
 /* Scope switch and restore ---------------------------------------------- */
 
 /*
